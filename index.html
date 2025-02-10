@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message du Jour ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: url('https://source.unsplash.com/1600x900/?love,couple') no-repeat center center fixed;
+            background-size: cover;
+            color: #d63384;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+        Votre navigateur ne supporte pas l'audio.
+    </audio>
+    
+    <div class="container">
+        <h1>💌 Message du jour 💌</h1>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        // Liste des messages d'amour à afficher du 14/02/2025 au 31/12/2025
+        const messages = [
+            "Je t'aime plus que tout ❤️",
+            "Notre histoire est ma plus belle aventure 💕",
+            "Chaque jour avec toi est un cadeau 🎁",
+            "Tu es mon plus beau rêve devenu réalité ✨",
+            "Rien n'est plus doux que ton sourire 😘",
+            "Je suis reconnaissant(e) de t'avoir dans ma vie 💖",
+            "Ton amour illumine mes jours 🌞",
+            "Avec toi, chaque moment est magique 🪄",
+            "Je chéris chaque instant passé à tes côtés 💑",
+            "Tu es mon âme sœur, aujourd'hui et toujours ❤️",
+            "Tu es la plus belle chose qui me soit arrivée 💕",
+            "Chaque seconde avec toi est précieuse ⏳",
+            "Je t’aime plus que les mots ne peuvent l’exprimer 🥰",
+            "Tu es la raison de mon sourire chaque matin ☀️",
+            "Mon cœur bat pour toi et toi seul(e) 💓"
+        ];
+        
+        // Calcul du nombre total de jours du 14/02/2025 au 31/12/2025
+        const startDate = new Date(2025, 1, 14); // 14 février 2025
+        const endDate = new Date(2025, 11, 31); // 31 décembre 2025
+        const totalDays = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+        
+        // Vérification que la liste est assez longue
+        if (messages.length < totalDays) {
+            console.warn("Il manque des messages pour couvrir jusqu'à fin 2025 ! Ajoutez-en.");
+        }
+        
+        // Calcul du jour unique entre 14/02/2025 et 31/12/2025
+        const today = new Date();
+        const dayIndex = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+        
+        // Sélection d'un message unique sans répétition avant fin 2025
+        const messageOfTheDay = messages[dayIndex % messages.length];
+        
+        // Affichage du message avec animation
+        document.getElementById("message").innerText = messageOfTheDay;
+    </script>
+</body>
+</html>
