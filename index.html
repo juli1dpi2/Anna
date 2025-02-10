@@ -4,36 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message du Jour ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            margin: 50px;
-            background: url('https://source.unsplash.com/1600x900/?love,couple') no-repeat center center fixed;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
             background-size: cover;
-            color: #d63384;
+            color: #fff;
         }
+
         .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
+            max-width: 500px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #ffe4e1;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            animation: fadeIn 2s forwards;
+            animation: pulse 2s infinite alternate;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.02); }
+        }
+
     </style>
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
-        Votre navigateur ne supporte pas l'audio.
-    </audio>
     
     <div class="container">
         <h1>💌 Message du jour 💌</h1>
@@ -41,7 +67,6 @@
     </div>
 
     <script>
-        // Liste des messages d'amour à afficher du 14/02/2025 au 31/12/2025
         const messages = [
             "Joyeuse Saint Valentin en avance mon amoureuse, je suis désolé qu'on soit obligé d'aller dans un Airbnb éteint, je te promets une bien meilleure pour l'année prochaine avec de vrais cadeaux et de vraies fleurs. Je t'aime de tout mon coeur ❤️",
             "Bon là c'est le jour de la vraie Saint-Valentin, je sais pas encore ce qu'on a mangé mais j'espère que t'as aimé, et c'est la séance en duo couple omg",
@@ -120,29 +145,36 @@
             "Vérification pour voir si tu lis toujours envoie :'emia't eJ'",
             "Ok le projet cheveux long est fini je rase tout désolé..",
             "Comment je dois tellement t'aimer à ce moment là la dinguerie ❤️",
+            "1er mai fête du travail on ira cueillir du muguet pour le revendre et acheter un appart",
+            "Bon j'espère que j'ai pris 1 kilo depuis alors que toi t'auras ton énorme cul et tes jambes de star",
+            "Imagine t'es en mode cheveux foncés ce jour là omg ",
+            "Bon j'espère qu'il fait beau quand même c'est l'été bientôt il serait temps que je vois tes incroyables yeux au soleil",
+            "TU VEUX M'EPOUSER OUI OU MERDE ?????",
+            "Je t'aime, Je t'aime, Je t'aime, Je t'aime, Je t'aime",
+            "1 an et 1 mois pour notre fils est-ce qu'il est devenu plus calme depuis ???",
+            "                                                                                                                                                                                                                                                                                                             JE T'AIME",
+            "Bonne journée le soleil de ma vie, c'est bientot la fin de ton horrible stage courage !!",
             
             
-        ];
+            
+            
+       ];
         
-        // Calcul du nombre total de jours du 13/02/2025 au 31/12/2025
-        const startDate = new Date(2025, 1, 13); // 13 février 2025
+        const startDate = new Date(2025, 1, 10); // 13 février 2025
         const endDate = new Date(2025, 11, 31); // 31 décembre 2025
         const totalDays = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
         
-        // Vérification que la liste est assez longue
         if (messages.length < totalDays) {
             console.warn("Il manque des messages pour couvrir jusqu'à fin 2025 ! Ajoutez-en.");
         }
-        
-        // Calcul du jour unique entre 14/02/2025 et 31/12/2025
-        const today = new Date(2025, 1, 28);
+
+        const today = new Date(2025,1,10); 
         const dayIndex = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
         
-        // Sélection d'un message unique sans répétition avant fin 2025
         const messageOfTheDay = messages[dayIndex % messages.length];
         
-        // Affichage du message avec animation
         document.getElementById("message").innerText = messageOfTheDay;
     </script>
+
 </body>
 </html>
