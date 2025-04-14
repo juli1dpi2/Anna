@@ -62,17 +62,53 @@
             to { transform: scale(1.02); }
         }
 
-    </style>
+      <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    #video-container {
+      display: none;
+      margin-top: 40px;
+    }
+
+    .footer-button {
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-    <button onclick="montrerVideo()">Voir la vidéo</button>
 
-<div id="video-container" style="display: none; margin-top: 20px;">
-  <video width="640" controls>
-    <source src="https://youtube.com/shorts/k-d_SN1MX8w?si=x_eYXjz5I78BjJni" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo.
-  </video>
-</div>
+  <div id="video-container">
+    <video width="640" controls>
+      <source src="https://youtube.com/shorts/k-d_SN1MX8w?si=x_eYXjz5I78BjJni" type="video/mp4">
+      Votre navigateur ne supporte pas la vidéo.
+    </video>
+  </div>
+
+  <div class="footer-button">
+    <button onclick="montrerVideo()">Voir la vidéo</button>
+  </div>
 
 <script>
   function montrerVideo() {
@@ -210,6 +246,13 @@
             document.getElementById('background-music').pause();
         }
     });
+          </div>
+
+    function montrerVideo() {
+      document.getElementById("video-container").style.display = "block";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     </script>
 
 </body>
