@@ -65,10 +65,20 @@
     </style>
 </head>
 <body>
-    <audio id="background-music" autoplay loop>
-    <source src="nelly-dilemma-official-music-video-ft-kelly-rowland_3YpQv5Kw.mp3" type="audio/mpeg">
-    Votre navigateur ne supporte pas l'audio.
-    </audio>
+    <button onclick="montrerVideo()">Voir la vidéo</button>
+
+<div id="video-container" style="display: none; margin-top: 20px;">
+  <video width="640" controls>
+    <source src="URL_DE_TA_VIDEO" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+</div>
+
+<script>
+  function montrerVideo() {
+    document.getElementById("video-container").style.display = "block";
+  }
+</script>
     
     <div class="container">
         <h1>💌 Message du jour 💌</h1>
