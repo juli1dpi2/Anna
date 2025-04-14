@@ -61,75 +61,34 @@
             from { transform: scale(1); }
             to { transform: scale(1.02); }
         }
-
-      <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      font-family: sans-serif;
-    }
-
-    #video-container {
-      display: none;
-      margin-top: 40px;
-    }
-
-    .footer-button {
-      margin-bottom: 30px;
-    }
-
     button {
-      background-color: #4CAF50;
+      background-color: #ad639c;
       color: white;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border: none;
       cursor: pointer;
       font-size: 16px;
       border-radius: 5px;
+      margin-top: 15px;
     }
 
     button:hover {
-      background-color: #45a049;
+      background-color: #a0528c;
     }
+
+    #video-container {
+      display: none;
+      margin-top: 30px;
+    }
+
   </style>
 </head>
 <body>
 
-  <div id="video-container">
-    <video width="640" controls>
-      <source src="https://youtube.com/shorts/k-d_SN1MX8w?si=x_eYXjz5I78BjJni" type="video/mp4">
-      Votre navigateur ne supporte pas la vidéo.
-    </video>
-  </div>
-
-  <div class="footer-button">
-    <button onclick="montrerVideo()">Voir la vidéo</button>
-  </div>
-
-<script>
-  function montrerVideo() {
-    document.getElementById("video-container").style.display = "block";
-  }
-</script>
-    
     <div class="container">
         <h1>💌 Message du jour 💌</h1>
         <p id="message"></p>
-        <button onclick="document.getElementById('background-music').play()" style="
-    margin-top: 15px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #ad639c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;">
-    ▶️
-</button>
+         <button onclick="montrerVideo()">▶️</button>
     </div>
 
     <script>
@@ -246,12 +205,21 @@
             document.getElementById('background-music').pause();
         }
     });
-          </div>
 
-    function montrerVideo() {
-      document.getElementById("video-container").style.display = "block";
+       function montrerVideo() {
+      const videoContainer = document.getElementById("video-container");
+      videoContainer.style.display = "block";
+      videoContainer.innerHTML = `
+        <iframe width="300" height="530"
+          src="https://www.youtube.com/embed/k-d_SN1MX8w?autoplay=1"
+          title="YouTube video"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>`;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
 
     </script>
 
